@@ -19,14 +19,10 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.jakewharton.rxbinding2.view.RxView
 import io.reactivex.Observable
-import io.reactivex.ObservableEmitter
 import io.reactivex.Observer
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
-
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -79,7 +75,7 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener, TextView.OnEdito
 
     }
 
-    fun lookupButtonClick(s: String) {
+    private fun lookupButtonClick(s: String) {
 
         // Check internet connection
         if(checkConnection() != null) {
@@ -155,13 +151,12 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener, TextView.OnEdito
 
     }
 
-    fun oxfordRequest(s: String) : String {
+    private fun oxfordRequest(s: String) : String {
 
         // local vals
         val oxfordAppID: String = "d152ef74"
         val oxfordAppKEY: String = "0f2153750b709f4ffabb848a8eda2448"
         val oxfordAppBASE_URL: String = "https://od-api.oxforddictionaries.com/api/v1/entries/"
-        val oxfordAppDestLang: String = "es"
         val oxfordAppSourceLang: String = "en"
 
         Log.i("ASYNC", "Step 1")
@@ -207,13 +202,13 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener, TextView.OnEdito
 
     }
 
-    fun View.hideKeyboard() {
+    private fun View.hideKeyboard() {
 
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(windowToken,0)
     }
 
-    fun checkConnection() : NetworkInfo? {
+    private fun checkConnection() : NetworkInfo? {
 
         val cm: ConnectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetInfo: NetworkInfo? = cm.activeNetworkInfo
@@ -262,10 +257,7 @@ class MainActivity : AppCompatActivity(), View.OnTouchListener, TextView.OnEdito
 
             p0?.hideKeyboard()
 
-            var tempText = ""
-
-            // Get user input
-            tempText = mainInput.editText?.text.toString()
+            val tempText = mainInput.editText?.text.toString()
 
             lookupButtonClick(tempText)
         }
