@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Wordy Lookup</string>
+
+
+    <!-- Menu items -->
+
+    <string name="action_settings">About..</string>
+
+    <!-- Headers -->
+
+    <string name="main_header">Welcome to Wordy Lookup</string>
+
+
+    <!-- Labels -->
+
+    <string name="main_input">Type what you would like to lookup</string>
+    <string name="definition"><u>Definition</u></string>
+
+
+    <!-- Hints -->
+
+    <string name="main_hint">Text to lookup..</string>
+
+
+    <!-- Buttons -->
+
+    <string name="button_translate">Lookup!</string>
+
+    <!-- Errors -->
+
+    <string name="internet_error">No internet connection!</string>
+    <string name="server_error">Invalid response from server, try again</string>
+    <string name="word_not_found_error">Word not found in Oxford English dictionary, try again</string>
+
+    <!-- Alert Dialogs -->
+
+        <!-- About.. -->
+
+        <string name="about_title">About Wordy Lookup</string>
+        <string name="about_content">Wordy Lookup is a  simple app made to search for English words defintions, try it yourself!</string>
+
+</resources>
